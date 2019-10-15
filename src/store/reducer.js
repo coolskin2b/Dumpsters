@@ -20,6 +20,7 @@ const initialState = {
 
 // == Types
 const DO_SOMETHING = "DO_SOMETHING";
+const UPDATE_VIEWPORT = "UPDATE_VIEWPORT";
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -28,6 +29,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         message: action.message
+      };
+    case UPDATE_VIEWPORT:
+      // console.log(action);
+      return {
+        ...state,
+        viewport: action.viewport
       };
 
     default:
@@ -39,6 +46,11 @@ const reducer = (state = initialState, action = {}) => {
 export const doSomething = message => ({
   type: DO_SOMETHING,
   message
+});
+
+export const updateViewport = viewport => ({
+  type: UPDATE_VIEWPORT,
+  viewport
 });
 
 // == Selectors

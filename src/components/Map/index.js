@@ -3,8 +3,16 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as parkDate from "../../data/skateboard-parks.json";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-const Map = ({ viewport, mapboxApiAccessToken, mapStyle }) => {
+const Map = ({ viewport, mapboxApiAccessToken, mapStyle, updateViewport }) => {
+  // const [viewport, setViewport] = useState({
+  //   latitude: 45.4211,
+  //   longitude: -75.6903,
+  //   width: "100vw",
+  //   height: "100vh",
+  //   zoom: 10
+  // });
   const [selectedPark, setSelectedPark] = useState(null);
+
   useEffect(() => {
     const listener = e => {
       if (e.key === "Escape") {
@@ -17,6 +25,12 @@ const Map = ({ viewport, mapboxApiAccessToken, mapStyle }) => {
       window.removeEventListener("keydown", listener);
     };
   }, []);
+  const handleChange = mapChange => {
+    console.log(mapChange);
+    // event.preventDefault();
+    // sendMessage();
+    updateViewport(mapChange);
+  };
 
   return (
     <div>
@@ -24,13 +38,13 @@ const Map = ({ viewport, mapboxApiAccessToken, mapStyle }) => {
         {...viewport}
         mapboxApiAccessToken={mapboxApiAccessToken}
         mapStyle={mapStyle}
-        //Permet Zoom et scroll Animation
+        // Animation sur le changement :  Viewport Transition
+        // https://github.com/uber/react-map-gl/blob/master/docs/advanced/viewport-transition.md#examples/viewport-animation
         // onViewportChange={viewport => {
         //   setViewport(viewport);
+        //   console.log(viewport);
         // }}
-        onViewportChange={() => {
-          console.log("changement");
-        }}
+        onViewportChange={handleChange}
       >
         {parkDate.features.map(park => (
           <Marker
