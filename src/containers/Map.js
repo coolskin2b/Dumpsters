@@ -15,11 +15,7 @@ import { doSomething } from "src/store/reducer";
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
 const mapStateToProps = (state, ownProps) => ({
-  latitude: state.latitude,
-  longitude: state.latitude,
-  width: state.width,
-  height: state.height,
-  zoom: state.zoom,
+  viewport: state.viewport,
   mapboxApiAccessToken: state.mapboxApiAccessToken,
   mapStyle: state.mapStyle
 });

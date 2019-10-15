@@ -1,13 +1,14 @@
 // == Initial State
 const initialState = {
-  message: "Hello",
-  // Latitude & longitude de depart à modifier
-  // en fonction de l'utilisateur (code postal?)
-  latitude: 45.4211,
-  longitude: -75.6903,
-  width: "100vw",
-  height: "100vh",
-  zoom: 10,
+  //https://github.com/uber/react-map-gl/blob/master/docs/advanced/viewport-transition.md
+  viewport: {
+    //ATTENTION Garder L'ordre Latitude Longitude !!!!
+    latitude: 45.4211,
+    longitude: -75.6903,
+    width: "100vw",
+    height: "100vh",
+    zoom: 10
+  },
   //Token pour mapboxApi
   mapboxApiAccessToken:
     "pk.eyJ1IjoiY29vbHNraW4yYiIsImEiOiJjazFtaTBwZ3IwMHdqM3ByMGs1ZW42MjB5In0.4_OP7fER3iedwRMZqfDppg",

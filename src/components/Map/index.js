@@ -3,26 +3,8 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as parkDate from "../../data/skateboard-parks.json";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-const Map = ({
-  latitude,
-  longitude,
-  width,
-  height,
-  zoom,
-  mapboxApiAccessToken,
-  mapStyle
-}) => {
-  //Ancien HOOK pour le state
-  // const [viewport, setViewport] = useState({
-  //   latitude: 45.4211,
-  //   longitude: -75.6903,
-  //   width: "100vw",
-  //   height: "100vh",
-  //   zoom: 10
-  // });
+const Map = ({ viewport, mapboxApiAccessToken, mapStyle }) => {
   const [selectedPark, setSelectedPark] = useState(null);
-
-  //hook d'event sur la touche echap
   useEffect(() => {
     const listener = e => {
       if (e.key === "Escape") {
@@ -39,18 +21,16 @@ const Map = ({
   return (
     <div>
       <ReactMapGL
-        latitude={latitude}
-        longitude={longitude}
-        width={width}
-        zoom={zoom}
-        height={height}
+        {...viewport}
         mapboxApiAccessToken={mapboxApiAccessToken}
         mapStyle={mapStyle}
-
-        //Hook je sais pas trop a quoi il peut servir il actualise l'ancien state
+        //Permet Zoom et scroll Animation
         // onViewportChange={viewport => {
         //   setViewport(viewport);
         // }}
+        onViewportChange={() => {
+          console.log("changement");
+        }}
       >
         {parkDate.features.map(park => (
           <Marker
