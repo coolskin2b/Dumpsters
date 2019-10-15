@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
+
+//DATA EN DUR
 import * as parkDate from "../../data/skateboard-parks.json";
+// CSS MAPBOX
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const Map = ({ viewport, mapboxApiAccessToken, mapStyle, updateViewport }) => {
-  // const [viewport, setViewport] = useState({
-  //   latitude: 45.4211,
-  //   longitude: -75.6903,
-  //   width: "100vw",
-  //   height: "100vh",
-  //   zoom: 10
-  // });
   const [selectedPark, setSelectedPark] = useState(null);
 
   useEffect(() => {
@@ -39,6 +36,7 @@ const Map = ({ viewport, mapboxApiAccessToken, mapStyle, updateViewport }) => {
         mapboxApiAccessToken={mapboxApiAccessToken}
         mapStyle={mapStyle}
         // Animation sur le changement :  Viewport Transition
+        // https://urbica.github.io/react-map-gl/#/Components/Layer
         // https://github.com/uber/react-map-gl/blob/master/docs/advanced/viewport-transition.md#examples/viewport-animation
         // onViewportChange={viewport => {
         //   setViewport(viewport);
@@ -47,6 +45,8 @@ const Map = ({ viewport, mapboxApiAccessToken, mapStyle, updateViewport }) => {
         onViewportChange={handleChange}
       >
         {parkDate.features.map(park => (
+          //ICI A VERIFIER PREFERER LAYER A MARKER
+          //
           <Marker
             key={park.properties.PARK_ID}
             latitude={park.geometry.coordinates[1]}
@@ -82,6 +82,19 @@ const Map = ({ viewport, mapboxApiAccessToken, mapStyle, updateViewport }) => {
       </ReactMapGL>
     </div>
   );
+};
+Map.propTypes = {
+  viewport: PropTypes.shape({
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired,
+    // J'arrive pas a verfier le type de Height et Width car il change
+    // width: PropTypes.number.isRequired,
+    // height: PropTypes.number.isRequired,
+    zoom: PropTypes.number.isRequired
+  }).isRequired,
+  mapboxApiAccessToken: PropTypes.string.isRequired,
+  mapStyle: PropTypes.string.isRequired,
+  updateViewport: PropTypes.func.isRequired
 };
 
 export default Map;
