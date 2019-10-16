@@ -20,6 +20,7 @@
     "eslint-import-resolver-webpack": "*",
     "eslint-plugin-import": "*",
     "eslint-plugin-jsx-a11y": "*",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "*",
     "file-loader": "*",
     "html-webpack-plugin": "*",
@@ -30,6 +31,7 @@
     "optimize-css-assets-webpack-plugin": "*",
     "postcss": "*",
     "postcss-loader": "*",
+    "prettier": "^1.18.2",
     "sass-loader": "*",
     "style-loader": "*",
     "stylelint": "*",
@@ -61,6 +63,7 @@
     "react-map-gl": "^5.0.12",
     "react-mapbox-gl": "^4.6.1",
     "react-redux": "^7.1.0",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "semantic-ui-react": "^0.88.1"
   }
 }

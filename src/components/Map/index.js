@@ -1,33 +1,33 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 
 //DATA EN DUR
-import * as parkDate from "../../data/skateboard-parks.json";
+import * as parkDate from '../../data/skateboard-parks.json'
 // CSS MAPBOX
-import "mapbox-gl/dist/mapbox-gl.css";
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 const Map = ({ viewport, mapboxApiAccessToken, mapStyle, updateViewport }) => {
-  const [selectedPark, setSelectedPark] = useState(null);
+  const [selectedPark, setSelectedPark] = useState(null)
 
   useEffect(() => {
-    const listener = e => {
-      if (e.key === "Escape") {
-        setSelectedPark(null);
+    const listener = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedPark(null)
       }
-    };
-    window.addEventListener("keydown", listener);
+    }
+    window.addEventListener('keydown', listener)
 
     return () => {
-      window.removeEventListener("keydown", listener);
-    };
-  }, []);
-  const handleChange = mapChange => {
-    console.log(mapChange);
+      window.removeEventListener('keydown', listener)
+    }
+  }, [])
+  const handleChange = (mapChange) => {
+    console.log(mapChange)
     // event.preventDefault();
     // sendMessage();
-    updateViewport(mapChange);
-  };
+    updateViewport(mapChange)
+  }
 
   return (
     <div>
@@ -44,9 +44,8 @@ const Map = ({ viewport, mapboxApiAccessToken, mapStyle, updateViewport }) => {
         // }}
         onViewportChange={handleChange}
       >
-        {parkDate.features.map(park => (
+        {parkDate.features.map((park) => (
           //ICI A VERIFIER PREFERER LAYER A MARKER
-          //
           <Marker
             key={park.properties.PARK_ID}
             latitude={park.geometry.coordinates[1]}
@@ -54,9 +53,9 @@ const Map = ({ viewport, mapboxApiAccessToken, mapStyle, updateViewport }) => {
           >
             <button
               className="marker-btn"
-              onClick={e => {
-                e.preventDefault();
-                setSelectedPark(park);
+              onClick={(e) => {
+                e.preventDefault()
+                setSelectedPark(park)
               }}
             >
               <img src="/public/DumpsterLogos.svg" alt="Skate Park Icon" />
@@ -69,7 +68,7 @@ const Map = ({ viewport, mapboxApiAccessToken, mapStyle, updateViewport }) => {
             latitude={selectedPark.geometry.coordinates[1]}
             longitude={selectedPark.geometry.coordinates[0]}
             onClose={() => {
-              setSelectedPark(null);
+              setSelectedPark(null)
             }}
           >
             <div>
@@ -81,8 +80,8 @@ const Map = ({ viewport, mapboxApiAccessToken, mapStyle, updateViewport }) => {
         ) : null}
       </ReactMapGL>
     </div>
-  );
-};
+  )
+}
 Map.propTypes = {
   viewport: PropTypes.shape({
     latitude: PropTypes.number.isRequired,
@@ -90,11 +89,12 @@ Map.propTypes = {
     // J'arrive pas a verfier le type de Height et Width car il change
     // width: PropTypes.number.isRequired,
     // height: PropTypes.number.isRequired,
-    zoom: PropTypes.number.isRequired
+    zoom: PropTypes.number.isRequired,
   }).isRequired,
+
   mapboxApiAccessToken: PropTypes.string.isRequired,
   mapStyle: PropTypes.string.isRequired,
-  updateViewport: PropTypes.func.isRequired
-};
+  updateViewport: PropTypes.func.isRequired,
+}
 
-export default Map;
+export default Map

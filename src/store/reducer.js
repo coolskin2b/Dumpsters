@@ -5,22 +5,22 @@ const initialState = {
     //ATTENTION Garder L'ordre Latitude Longitude !!!!
     latitude: 45.4211,
     longitude: -75.6903,
-    width: "100vw",
-    height: "100vh",
-    zoom: 10
+    width: '100vw',
+    height: '100vh',
+    zoom: 10,
   },
   //Token pour mapboxApi
   mapboxApiAccessToken:
-    "pk.eyJ1IjoiY29vbHNraW4yYiIsImEiOiJjazFtaTBwZ3IwMHdqM3ByMGs1ZW42MjB5In0.4_OP7fER3iedwRMZqfDppg",
+    'pk.eyJ1IjoiY29vbHNraW4yYiIsImEiOiJjazFtaTBwZ3IwMHdqM3ByMGs1ZW42MjB5In0.4_OP7fER3iedwRMZqfDppg',
   //Plusieurs style par defaut sont dispos on peut meme
   //creer le notre ou afficher different type de vue
   //suivant utilisateur
-  mapStyle: "mapbox://styles/mapbox/streets-v9"
-};
+  mapStyle: 'mapbox://styles/mapbox/streets-v9',
+}
 
 // == Types
-const DO_SOMETHING = "DO_SOMETHING";
-const UPDATE_VIEWPORT = "UPDATE_VIEWPORT";
+const DO_SOMETHING = 'DO_SOMETHING'
+const UPDATE_VIEWPORT = 'UPDATE_VIEWPORT'
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -28,32 +28,32 @@ const reducer = (state = initialState, action = {}) => {
     case DO_SOMETHING:
       return {
         ...state,
-        message: action.message
-      };
+        message: action.message,
+      }
     case UPDATE_VIEWPORT:
       // console.log(action);
       return {
         ...state,
-        viewport: action.viewport
-      };
+        viewport: action.viewport,
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}
 
 // == Action Creators
-export const doSomething = message => ({
+export const doSomething = (message) => ({
   type: DO_SOMETHING,
-  message
-});
+  message,
+})
 
-export const updateViewport = viewport => ({
+export const updateViewport = (viewport) => ({
   type: UPDATE_VIEWPORT,
-  viewport
-});
+  viewport,
+})
 
 // == Selectors
 
 // == Export
-export default reducer;
+export default reducer
