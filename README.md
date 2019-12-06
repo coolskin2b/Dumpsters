@@ -1,22 +1,22 @@
 # Gaston ton ami anti-gaspi
 Gaston v0.9
 
-##Partie Front - réalisée en React (2 personnes) : 
+## Partie Front - réalisée en React (2 personnes) : 
 - Centralisation des données: React-Redux 
 - Routage front: React-Router 
 - Carte: MapBox   dépendances : react-map-gl. 
 - Données primaire Gélocalisation: API Adresse geo.api  data.gouv.fr, dépendances : axios 
 - Formulaires dépendances: redux-form - Intégration graphique:  custom, sans framework (type : bootstrap etc..)
-##Partie Back - réalisée avec le framework Symfony (2 personnes): 
+## Partie Back - réalisée avec le framework Symfony (2 personnes): 
 - Identification: JWT Token 
 - Back-Office: EasyAdminBundle 
 - Interface avec la base de données: ORM Doctrine 
 - Base de données: MySql - Gestion de la base de données: PhpMyAdmin
 
-##Comment Gaston?
+## Comment Gaston?
   Présenté et soutenu par Laurent 
 
-#Pourquoi Gaston?
+# Pourquoi Gaston?
 
 L’idée de l’application « Gaston » est une alternative pour faciliter une consommation responsable, donner une seconde vie aux objets, lutter contre la surconsommation et le gaspillage alimentaire. Nous souhaitons construire un « réseau social » favorisant le recyclage des objets et la redistribution de la nourriture invendue. 
  
