@@ -1,7 +1,6 @@
 # Gaston ton ami anti-gaspi
 Gaston v0.9
-[logo]: https://github.com/coolskin2b/Dumpsters/blob/master/src/assets/images/bggaston.jpg "Gaston"
-
+![](src/assets/images/bggaston.jpg)
 
 ## Partie Front - réalisée en React (2 personnes) : 
 - Centralisation des données: React-Redux 
