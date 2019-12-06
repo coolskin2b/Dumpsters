@@ -13,9 +13,6 @@ Gaston v0.9
 - Interface avec la base de données: ORM Doctrine 
 - Base de données: MySql - Gestion de la base de données: PhpMyAdmin
 
-## Comment Gaston?
-  Présenté et soutenu par Laurent 
-
 # Pourquoi Gaston?
 
 L’idée de l’application « Gaston » est une alternative pour faciliter une consommation responsable, donner une seconde vie aux objets, lutter contre la surconsommation et le gaspillage alimentaire. Nous souhaitons construire un « réseau social » favorisant le recyclage des objets et la redistribution de la nourriture invendue. 
